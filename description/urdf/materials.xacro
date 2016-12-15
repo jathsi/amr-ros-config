@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<robot>
+
+  <material name="SonarYellow">
+	<color rgba="${255/255} ${108/255} ${10/255} 1.0"/>
+  </material>
+
+  <material name="WheelBlack">
+	<color rgba="0.0 0.0 0.0 1.0"/>
+  </material>
+
+  <material name="HubcapYellow">
+	<color rgba="0.0 0.8 0.0 1.0"/>
+  </material>
+
+  <material name="ChassisRed">
+	<color rgba="0.8 0.0 0.0 1.0"/>
+  </material>
+
+  <material name="TopBlack">
+	<color rgba="0.0 0.0 0.0 1.0"/>
+  </material>
+
+  <material name="ChassisGrey">
+    <color rgba="1.0 1.0 1.0 1.0"/>
+  </material>
+
+</robot>

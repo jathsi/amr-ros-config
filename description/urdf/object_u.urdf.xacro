@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro"
+name="object">
+    <link name="base_link">
+ <collision>
+			<origin xyz="0 0 0.177" rpy="0 0 0"/>
+				<geometry>
+					<mesh filename="package://amr_robots_description/meshes/p3at_meshes/chassis.stl"/>
+				</geometry>
+		</collision>
+
+    <visual>
+    <origin xyz="0 0 0.177" rpy="0 0 0"/>
+	<geometry>
+        <mesh filename="package://amr_robots_description/meshes/p3at_meshes/chassis.stl"/>
+      </geometry>
+    </visual>
+
+<inertial>
+			<mass value="21.5"/> <!-- P3AT 18.6kg plus three batteries @ 2.4kg each  minus four wheels @ 1.4 kg ea and top plate @ 0.1 kg-->
+			<origin xyz="0 -0.1 0.177"/>
+			<inertia ixx="0.3338" ixy="0.0" ixz="0.0" iyy="0.4783" iyz="0.0" izz="0.3338"/>
+</inertial>
+  </link>
+</robot>
