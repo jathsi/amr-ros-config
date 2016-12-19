@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro"
+name="pioneer3at">
+<gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/rrbot</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    </plugin>
+  </gazebo>
+<xacro:include filename="$(find description)/urdf/pioneer3at.gazebo" />
+
+<!-- Chassis -->
+	<link name="base_link">
+
+
+		<!--  For pointers on inertial and gazebo-related parameters see
+		       * http://wiki.ros.org/urdf/Tutorials/Adding%20Physical%20and%20Collision%20Properties%20to%20a%20URDF%20Model
+                       * http://answers.gazebosim.org/question/4372/the-inertia-matrix-explained/
+		       * http://gazebosim.org/tutorials?tut=inertia&cat=build_robot, and 
+                       * http://gazebosim.org/tutorials/?tut=ros_urdf
+                       * http://en.wikipedia.org/wiki/List_of_moment_of_inertia_tensors  
+                -->
+		<inertial>
+			<mass value="21.5"/> <!-- P3AT 18.6kg plus three batteries @ 2.4kg each  minus four wheels @ 1.4 kg ea and top plate @ 0.1 kg-->
+			<origin xyz="0 -0.1 0.177"/>
+			<inertia ixx="0.3338" ixy="0.0"     ixz="0.0"
+				              iyy="0.4783"  iyz="0.0"
+				                            izz="0.3338"/>
+		</inertial>
+		<visual name="base_visual">
+			<origin xyz="0 0 0.177" rpy="0 0 0"/>
+			<geometry name="pioneer_geom">
+				<mesh filename="package://amr_robots_description/meshes/p3at_meshes/chassis.stl"/>
+			</geometry>
+			<material name="ChassisRed"/>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0.177" rpy="0 0 0"/>
+				<geometry>
+					<mesh filename="package://amr_robots_description/meshes/p3at_meshes/chassis.stl"/>
+				</geometry>
+		</collision>
+	</link>
+</robot>

@@ -18,7 +18,7 @@
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
   </group>
  <group ns="node1">
-  <arg name="urdf" default="$(find amr_robots_description)/urdf/old_pioneer3at.urdf.xacro" />
+  <arg name="urdf" default="$(find amr_robots_description)/urdf/pioneer3at.urdf.xacro" />
   <arg name="name" default="pioneer3at" />
   <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg urdf)" />
   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg name)" />
